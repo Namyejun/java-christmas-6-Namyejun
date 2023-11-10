@@ -1,12 +1,12 @@
 package christmas.domain;
 
-public class Menu {
+public class Dish {
     private String name;
     private MenuSection section;
     private int price;
     private int count = 0;
 
-    public Menu(String name, MenuSection section, int price) {
+    public Dish(String name, MenuSection section, int price) {
         this.name = name;
         this.section = section;
         this.price = price;
