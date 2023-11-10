@@ -108,7 +108,6 @@ public class Event{
 
     private int serviceEvent() {
         if (menu.getTotalPrice() >= 120000) {
-            menu.getDishs().get("샴페인").setCount(menu.getDishs().get("샴페인").getCount() + 1);
             return 25000;
         }
 
