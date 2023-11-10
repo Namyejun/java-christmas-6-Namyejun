@@ -12,6 +12,11 @@ public class Dish {
         this.price = price;
     }
 
+    public Dish(String name, int count) {
+        this.name = name;
+        this.count = count;
+    }
+
     public String getName() {
         return this.name;
     }
