@@ -42,10 +42,31 @@ public class Event{
 
         discount += xmasDdayEvent();
         discount += starEvent();
-        discount += dayEvent();
+        discount += weekdayEvent();
+        discount += weekendEvent();
         discount += serviceEvent();
 
         return discount;
+    }
+
+    @Override
+    public String toString() {
+        String returnVal = "<혜택 내역>\n";
+        returnVal += isItValid("크리스마스 디데이 할인", xmasDdayEvent());
+        returnVal += isItValid("평일 할인", weekdayEvent());
+        returnVal += isItValid("주말 할인", weekendEvent());
+        returnVal += isItValid("특별 할인", starEvent());
+        returnVal += isItValid("증정 이벤트", serviceEvent());
+
+        return returnVal;
+    }
+
+    private String isItValid(String prefix, int x) {
+        if (x < 0) {
+            return "";
+        }
+
+        return prefix + ": " + String.format("%,d", x*(-1));
     }
 
     private int xmasDdayEvent() {
@@ -65,12 +86,20 @@ public class Event{
         return 1000;
     }
 
-    private int dayEvent() {
+    private int weekdayEvent() {
         if (calendar.getWeekday().contains(reserveDate)) {
             return dessertCount * 2023;
         }
 
-        return mainCount * 2023;
+        return 0;
+    }
+
+    private int weekendEvent() {
+        if (calendar.getWeekend().contains(reserveDate)) {
+            return mainCount * 2023;
+        }
+
+        return 0;
     }
 
     private int serviceEvent() {
