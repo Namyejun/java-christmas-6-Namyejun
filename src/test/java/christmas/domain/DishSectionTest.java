@@ -3,7 +3,7 @@ package christmas.domain;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class MenuSectionTest {
+public class DishSectionTest {
     @Test
     void menuSectionTest() {
         Assertions.assertThat(MenuSection.에피타이저.toString())
