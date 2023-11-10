@@ -23,4 +23,13 @@ public class MenuTest {
         Assertions.assertThat(menu.getTotalPrice())
             .isEqualTo(6000 * 3 + 55000 * 3);
     }
+
+    @DisplayName("toString 메소드 테스트")
+    @Test
+    void toStringTest() {
+        Menu menu = new Menu();
+        menu.order(List.of(new Dish("양송이수프", 3), new Dish("티본스테이크", 3)));
+        Assertions.assertThat(menu.toString())
+            .contains("<주문 메뉴>", "양송이수프 3개", "티본스테이크 3개");
+    }
 }
