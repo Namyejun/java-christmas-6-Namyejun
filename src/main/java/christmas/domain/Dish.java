@@ -25,6 +25,14 @@ public class Dish {
         return count;
     }
 
+    public DishSection getSection() {
+        return section;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
     public void setCount(int count) {
         this.count = count;
     }
