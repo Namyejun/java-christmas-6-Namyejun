@@ -13,7 +13,7 @@ public class Menu {
     private Map<String, Dish> dishs = new HashMap<>();
     private int totalPrice;
 
-    public Menu(List<Dish> dishList) {
+    public Menu() {
         for (String menu : menus) {
             String[] eachMenu = (String[]) Arrays.stream(menu.split(",")).toArray();
             dishs.put(eachMenu[0], new Dish(eachMenu[0], DishSection.valueOf(eachMenu[1]), Integer.parseInt(eachMenu[2])));
