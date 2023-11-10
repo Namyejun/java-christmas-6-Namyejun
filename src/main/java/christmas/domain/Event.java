@@ -43,7 +43,7 @@ public class Event{
         discount += xmasDdayEvent();
         discount += starEvent();
         discount += dayEvent();
-//        serviceEvent();
+        discount += serviceEvent();
 
         return discount;
     }
@@ -73,10 +73,13 @@ public class Event{
         return mainCount * 2023;
     }
 
-//    private void serviceEvent() {
-//        if (menu.getTotalPrice() >= 120000) {
-//            menu.getDishs().get("샴페인").setCount(menu.getDishs().get("샴페인").getCount() + 1);
-//        }
-//    }
+    private int serviceEvent() {
+        if (menu.getTotalPrice() >= 120000) {
+            menu.getDishs().get("샴페인").setCount(menu.getDishs().get("샴페인").getCount() + 1);
+            return 25000;
+        }
+
+        return 0;
+    }
 
 }
