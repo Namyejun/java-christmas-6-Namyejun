@@ -22,11 +22,11 @@ public class Event{
 
         for (Dish dish : order) {
             if (dish.getSection().equals(DishSection.메인) && dish.getCount() != 0) {
-                mainCount += 1;
+                mainCount += dish.getCount();
             }
 
             if (dish.getSection().equals(DishSection.디저트) && dish.getCount() != 0) {
-                dessertCount += 1;
+                dessertCount += dish.getCount();
             }
         }
 
