@@ -39,4 +39,16 @@ public class Menu {
 
         return returnVal;
     }
+
+    public String toString() {
+        String returnVal = "<주문 메뉴>\n";
+
+        for (Dish dish : dishs.values()) {
+            if (dish.getCount() != 0) {
+                returnVal += dish.getName() + " " + dish.getCount() + "개\n";
+            }
+        }
+
+        return returnVal;
+    }
 }
