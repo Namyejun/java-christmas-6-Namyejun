@@ -8,7 +8,7 @@ public class DishTest {
     @DisplayName("수량을 입력하지 않았을 때")
     @Test
     void menuTestWithNoCount() {
-        Dish dish = new Dish("양송이스프", MenuSection.에피타이저, 6000);
+        Dish dish = new Dish("양송이스프", DishSection.에피타이저, 6000);
         Assertions.assertThat(dish.getTotalPrice())
             .isEqualTo(0);
     }
@@ -16,7 +16,7 @@ public class DishTest {
     @DisplayName("수량을 입력했을 때")
     @Test
     void menuTest() {
-        Dish dish = new Dish("양송이스프", MenuSection.에피타이저, 6000);
+        Dish dish = new Dish("양송이스프", DishSection.에피타이저, 6000);
         dish.setCount(3);
         Assertions.assertThat(dish.getTotalPrice())
             .isEqualTo(18000);
