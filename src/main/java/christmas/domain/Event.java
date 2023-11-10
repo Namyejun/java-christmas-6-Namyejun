@@ -58,6 +58,10 @@ public class Event{
         returnVal += isItValid("특별 할인", starEvent());
         returnVal += isItValid("증정 이벤트", serviceEvent());
 
+        if (returnVal.equals("<혜택 내역>\n")) {
+            returnVal += "없음";
+        }
+
         return returnVal;
     }
 
@@ -66,7 +70,7 @@ public class Event{
             return "";
         }
 
-        return prefix + ": " + String.format("%,d", x*(-1));
+        return prefix + ": " + String.format("%,d", x*(-1)) + "\n";
     }
 
     private int xmasDdayEvent() {
