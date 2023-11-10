@@ -20,6 +20,10 @@ public class Menu {
         }
     }
 
+    public Map<String, Dish> getDishs() {
+        return dishs;
+    }
+
     public void order(List<Dish> order) { // 여긴 모든 유효성 검사를 마친 주문이 들어온 것
         for (Dish dish : order) {
             dishs.get(dish.getName()).setCount(dish.getCount());
