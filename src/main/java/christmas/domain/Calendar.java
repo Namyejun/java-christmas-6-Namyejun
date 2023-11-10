@@ -30,4 +30,12 @@ public class Calendar {
 
         return weekday;
     }
+
+    public List<Integer> getStarDays() {
+        return List.of(3,10,17,24,25,31);
+    }
+
+    public int getXmas() {
+        return 25;
+    }
 }
