@@ -46,6 +46,7 @@ public class Event{
     public String totalDiscountToString() {
         String returnVal = "<총혜택 금액>\n";
         returnVal += String.format("%,d원\n", (-1) * calcTotalDiscount());
+        giveBadge();
 
         return returnVal;
     }
@@ -142,7 +143,7 @@ public class Event{
         return 0;
     }
 
-    public void giveBadge() {
+    private void giveBadge() {
         int totalDiscount = calcTotalDiscount();
 
         if (totalDiscount < 5000) {
