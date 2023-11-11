@@ -24,7 +24,7 @@ public class OutputView {
         System.out.println(menu.toString());
     }
 
-    public void beforeEvent(String price) {
+    public void beforeEvent() {
         System.out.println("<할인 전 총주문 금액>");
         System.out.println(menu.getTotalPrice());
     }
