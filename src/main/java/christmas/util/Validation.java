@@ -31,7 +31,7 @@ public class Validation {
         String[] inputs = input.split(",");
 
         for (String eachInput : inputs) {
-            String[] order = eachInput.split("-");
+            String[] order = validateForm(eachInput);
             String name = order[0];
             int count = validateCount(order[1]);
             dishes.add(new Dish(name, count));
@@ -40,6 +40,16 @@ public class Validation {
         validateOrder(dishes, menu);
 
         return dishes;
+    }
+
+    private String[] validateForm(String input) {
+        String[] order = input.split("-");
+
+        if (order.length != 2) {
+            throw new IllegalArgumentException();
+        }
+
+        return order;
     }
 
     private int validateCount(String input) {
