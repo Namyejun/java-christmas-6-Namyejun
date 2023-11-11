@@ -27,8 +27,8 @@ public class InputView {
                 int date = validation.validateDate(input);
 
                 return date;
-            } catch (Exception e) {
-                throw new IllegalArgumentException("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.");
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
             }
         }
     }
@@ -42,8 +42,8 @@ public class InputView {
                 List<Dish> returnList = validation.tokenizeOrder(input, menu);
 
                 return returnList;
-            } catch (Exception e) {
-                throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
             }
         }
     }

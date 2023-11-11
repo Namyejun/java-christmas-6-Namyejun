@@ -22,7 +22,7 @@ public class Validation {
 
             return date;
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.");
         }
     }
 
@@ -46,7 +46,7 @@ public class Validation {
         String[] order = input.split("-");
 
         if (order.length != 2) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
         }
 
         return order;
@@ -62,7 +62,7 @@ public class Validation {
 
             return count;
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
         }
     }
 
@@ -85,13 +85,13 @@ public class Validation {
 
     private void eachDishValidate(Dish dish, Menu menu, Set<String> dishNames) {
         if ((!menu.getDishs().containsKey(dish.getName())) || dishNames.contains(dish.getName())) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
         }
     }
 
     private void afterEachDishValidate(int totalCount, Set<DishSection> dishSections) {
         if (totalCount > 20 || (dishSections.size() == 1 && dishSections.contains(DishSection.음료))) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
         }
     }
 
