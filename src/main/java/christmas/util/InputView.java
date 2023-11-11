@@ -11,9 +11,11 @@ import java.util.Set;
 
 public class InputView {
     private Menu menu;
+    private Validation validation;
 
-    public InputView(Menu menu) {
+    public InputView(Menu menu, Validation validation) {
         this.menu = menu;
+        this.validation = validation;
     }
 
     public int readDate() throws IllegalArgumentException {
@@ -22,25 +24,11 @@ public class InputView {
             try {
                 String input = Console.readLine();
 
-                int date = validateDate(input);
+                int date = validation.validateDate(input);
                 return date;
             } catch (Exception e) {
                 throw new IllegalArgumentException("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.");
             }
-        }
-    }
-
-    private int validateDate(String input) {
-        try {
-            int date = Integer.parseInt(input);
-
-            if (date < 1 || date > 31) {
-                throw new NumberFormatException();
-            }
-
-            return date;
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
         }
     }
 
@@ -49,54 +37,11 @@ public class InputView {
         while (true) {
             try {
                 String input = Console.readLine();
-                List<Dish> returnList = tokenizeOrder(input);
+                List<Dish> returnList = validation.tokenizeOrder(input, menu);
                 return returnList;
             } catch (Exception e) {
                 throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
             }
         }
-    }
-
-    private List<Dish> tokenizeOrder(String input) {
-        List<Dish> dishes = new ArrayList<>();
-        String[] inputs = input.split(",");
-
-        for (String eachInput : inputs) {
-            String[] order = eachInput.split("-");
-            String name = order[0];
-            int count = validateCount(order[1]);
-            dishes.add(new Dish(name, count));
-        }
-
-        validateOrder(dishes);
-
-        return dishes;
-    }
-
-    private int validateCount(String input) {
-        try {
-            int count = Integer.parseInt(input);
-
-            if (count < 1) {
-                throw new NumberFormatException();
-            }
-
-            return count;
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
-        }
-    }
-
-    private List<Dish> validateOrder(List<Dish> dishes) {
-        Set<String> dishNames = new HashSet<>();
-
-        for (Dish dish : dishes) {
-            if (!menu.getDishs().containsKey(dish.getName()) && dishNames.contains(dish.getName())) {
-                throw new IllegalArgumentException();
-            }
-            dishNames.add(dish.getName());
-        }
-
-        return dishes;
     }
 }
