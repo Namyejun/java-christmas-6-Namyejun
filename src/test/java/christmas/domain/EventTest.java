@@ -12,7 +12,7 @@ public class EventTest {
     void discountTest() {
         Menu menu = new Menu();
         menu.order(List.of(new Dish("아이스크림", 3), new Dish("티본스테이크", 3)));
-        Event event = new Event(menu, 3);
+        Event event = new Event(menu, new Customer(), 3);
         Assertions.assertThat(event.calcTotalDiscount())
             .isEqualTo(1000 + 2023 * 3 + 1200 + 25000);
     }
@@ -22,7 +22,7 @@ public class EventTest {
     void toStringTestWithDiscount() {
         Menu menu = new Menu();
         menu.order(List.of(new Dish("아이스크림", 3), new Dish("티본스테이크", 3)));
-        Event event = new Event(menu, 3);
+        Event event = new Event(menu, new Customer(), 3);
         Assertions.assertThat(event.toString())
             .contains("크리스마스 디데이 할인: -1,200", "평일 할인: -6,069", "특별 할인: -1,000", "증정 이벤트: -25,000");
     }
@@ -32,7 +32,7 @@ public class EventTest {
     void toStringTestWithNoDiscount() {
         Menu menu = new Menu();
         menu.order(List.of(new Dish("아이스크림", 1)));
-        Event event = new Event(menu, 1);
+        Event event = new Event(menu, new Customer(), 1);
         Assertions.assertThat(event.toString())
             .contains("없음");
     }

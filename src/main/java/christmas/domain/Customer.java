@@ -3,7 +3,7 @@ package christmas.domain;
 public class Customer {
     private Badge badgeOfDecember;
 
-    public Customer(Badge badgeOfDecember) {
+    public void setBadgeOfDecember(Badge badgeOfDecember) {
         this.badgeOfDecember = badgeOfDecember;
     }
 

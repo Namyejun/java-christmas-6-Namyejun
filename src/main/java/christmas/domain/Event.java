@@ -14,9 +14,10 @@ public class Event{
     private int dessertCount = 0;
 
     private Menu menu;
+    private Customer customer;
     private Calendar calendar = new Calendar();
 
-    public Event(Menu menu, int reserveDate) {
+    public Event(Menu menu, Customer customer, int reserveDate) {
         this.menu = menu;
         List<Dish> order = menu.getDishs().values().stream().toList();
 
@@ -30,6 +31,7 @@ public class Event{
             }
         }
 
+        this.customer = customer;
         this.reserveDate = reserveDate;
     }
 
@@ -138,6 +140,10 @@ public class Event{
         }
 
         return 0;
+    }
+
+    public void giveBadge() {
+
     }
 
 }
