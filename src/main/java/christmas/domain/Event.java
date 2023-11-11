@@ -94,11 +94,11 @@ public class Event{
     }
 
     private String stringFormat(String prefix, int x) {
-        if (x < 0) {
+        if (x <= 0) {
             return "";
         }
 
-        return prefix + ": " + String.format("%,d", x*(-1)) + "\n";
+        return prefix + ": " + String.format("%,d원", x*(-1)) + "\n";
     }
 
     private int xmasDdayEvent() {
@@ -145,17 +145,17 @@ public class Event{
     public void giveBadge() {
         int totalDiscount = calcTotalDiscount();
 
-        if (totalDiscount >= 20000) {
-            customer.setBadgeOfDecember(Badge.산타);
-        }
-        if (totalDiscount >= 10000) {
-            customer.setBadgeOfDecember(Badge.트리);
+        if (totalDiscount < 5000) {
+            customer.setBadgeOfDecember(Badge.없음);
         }
         if (totalDiscount >= 5000) {
             customer.setBadgeOfDecember(Badge.별);
         }
-        if (totalDiscount < 5000) {
-            customer.setBadgeOfDecember(Badge.없음);
+        if (totalDiscount >= 10000) {
+            customer.setBadgeOfDecember(Badge.트리);
+        }
+        if (totalDiscount >= 20000) {
+            customer.setBadgeOfDecember(Badge.산타);
         }
     }
 
