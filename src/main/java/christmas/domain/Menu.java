@@ -11,7 +11,6 @@ public class Menu {
     );
 
     private Map<String, Dish> dishs = new HashMap<>();
-    private int totalPrice;
 
     public Menu() {
         for (String menu : menus) {
