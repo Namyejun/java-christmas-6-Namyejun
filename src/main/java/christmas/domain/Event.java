@@ -33,10 +33,19 @@ public class Event{
         this.reserveDate = reserveDate;
     }
 
+    private boolean eventValid() {
+        if (menu.getTotalPrice() < 10000) {
+            return true;
+        }
+
+        return false;
+    }
+
+
     public int calcTotalDiscount() {
         int discount = 0;
 
-        if (menu.getTotalPrice() < 10000) {
+        if (eventValid()) {
             return discount;
         }
 
@@ -52,20 +61,21 @@ public class Event{
     @Override
     public String toString() {
         String returnVal = "<혜택 내역>\n";
-        returnVal += isItValid("크리스마스 디데이 할인", xmasDdayEvent());
-        returnVal += isItValid("평일 할인", weekdayEvent());
-        returnVal += isItValid("주말 할인", weekendEvent());
-        returnVal += isItValid("특별 할인", starEvent());
-        returnVal += isItValid("증정 이벤트", serviceEvent());
 
-        if (returnVal.equals("<혜택 내역>\n")) {
-            returnVal += "없음";
+        if (eventValid()) {
+            return returnVal + "없음\n";
         }
+
+        returnVal += stringFormat("크리스마스 디데이 할인", xmasDdayEvent());
+        returnVal += stringFormat("평일 할인", weekdayEvent());
+        returnVal += stringFormat("주말 할인", weekendEvent());
+        returnVal += stringFormat("특별 할인", starEvent());
+        returnVal += stringFormat("증정 이벤트", serviceEvent());
 
         return returnVal;
     }
 
-    private String isItValid(String prefix, int x) {
+    private String stringFormat(String prefix, int x) {
         if (x < 0) {
             return "";
         }
