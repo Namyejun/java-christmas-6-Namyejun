@@ -41,6 +41,12 @@ public class Event{
         return false;
     }
 
+    public String totalDiscountToString() {
+        String returnVal = "<총혜택 금액>\n";
+        returnVal += String.format("%,d원\n", (-1) * calcTotalDiscount());
+
+        return returnVal;
+    }
 
     public int calcTotalDiscount() {
         int discount = 0;
@@ -56,6 +62,16 @@ public class Event{
         discount += serviceEvent();
 
         return discount;
+    }
+
+    public String serviceToString() {
+        String returnVal = "<증정 메뉴>\n";
+
+        if (serviceEvent() == 25000) {
+            return returnVal += "샴페인 1개\n";
+        }
+
+        return returnVal += "없음\n";
     }
 
     @Override
