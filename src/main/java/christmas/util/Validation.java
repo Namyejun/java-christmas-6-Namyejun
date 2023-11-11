@@ -74,7 +74,7 @@ public class Validation {
     }
 
     private void eachDishValidate(Dish dish, Menu menu, Set<String> dishNames) {
-        if (!menu.getDishs().containsKey(dish.getName()) && dishNames.contains(dish.getName())) {
+        if ((!menu.getDishs().containsKey(dish.getName())) || dishNames.contains(dish.getName())) {
             throw new IllegalArgumentException();
         }
     }
