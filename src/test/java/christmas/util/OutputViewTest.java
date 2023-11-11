@@ -19,7 +19,6 @@ public class OutputViewTest extends NsTest {
         run();
         Assertions.assertThat(output())
             .contains(
-                "안녕하세요! 우테코 식당 12월 이벤트 플래너입니다.",
                 "<주문 메뉴>\n", "양송이수프 3개", "티본스테이크 3개",
                 "<할인 전 총주문 금액>\n183,000원",
                 "<증정 메뉴>\n샴페인 1개",
@@ -37,7 +36,6 @@ public class OutputViewTest extends NsTest {
         Customer customer = new Customer();
         Event event = new Event(menu, customer, 3);
         OutputView view = new OutputView(menu, event, customer);
-        view.start();
         view.printMenu();
         view.beforeEvent();
         view.event();
