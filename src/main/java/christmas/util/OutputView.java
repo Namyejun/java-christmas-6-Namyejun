@@ -33,7 +33,7 @@ public class OutputView {
         System.out.println(event.serviceToString());
         System.out.println(event.toString());
         System.out.println(event.totalDiscountToString());
-        System.out.println("<할인 후 예상 겨레 금액>");
+        System.out.println("<할인 후 예상 거레 금액>");
         System.out.println(String.format("%,d", menu.getTotalPrice() - event.calcTotalDiscount()));
     }
 
