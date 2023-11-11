@@ -2,6 +2,7 @@ package christmas.util;
 
 import camp.nextstep.edu.missionutils.Console;
 import christmas.domain.Dish;
+import christmas.domain.DishSection;
 import christmas.domain.Menu;
 
 import java.util.ArrayList;
@@ -41,7 +42,7 @@ public class Validation {
         return dishes;
     }
 
-    int validateCount(String input) {
+    private int validateCount(String input) {
         try {
             int count = Integer.parseInt(input);
 
@@ -55,16 +56,34 @@ public class Validation {
         }
     }
 
-    List<Dish> validateOrder(List<Dish> dishes, Menu menu) {
+    private List<Dish> validateOrder(List<Dish> dishes, Menu menu) {
         Set<String> dishNames = new HashSet<>();
-
+        Set<DishSection> dishSections = new HashSet<>();
+        int totalCount = 0;
         for (Dish dish : dishes) {
-            if (!menu.getDishs().containsKey(dish.getName()) && dishNames.contains(dish.getName())) {
-                throw new IllegalArgumentException();
-            }
+            eachDishValidate(dish, menu, dishNames);
+
+            dishSections.add(menu.getDishs().get(dish.getName()).getSection());
             dishNames.add(dish.getName());
+            totalCount += dish.getCount();
         }
+
+        afterEachDishValidate(totalCount, dishSections);
 
         return dishes;
     }
+
+    private void eachDishValidate(Dish dish, Menu menu, Set<String> dishNames) {
+        if (!menu.getDishs().containsKey(dish.getName()) && dishNames.contains(dish.getName())) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void afterEachDishValidate(int totalCount, Set<DishSection> dishSections) {
+        if (totalCount > 20 || (dishSections.size() == 1 && dishSections.contains(DishSection.음료))) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+
 }
