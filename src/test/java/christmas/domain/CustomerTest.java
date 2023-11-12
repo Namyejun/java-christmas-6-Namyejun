@@ -11,7 +11,7 @@ public class CustomerTest {
         customer.setBadgeOfDecember(Badge.산타);
 
         Assertions.assertThat(customer.toString())
-            .isEqualTo("<12월 이벤트 배지>\n산타");
+            .isEqualTo("<12월 이벤트 배지>" + System.lineSeparator() + "산타");
     }
 
 }
