@@ -21,14 +21,15 @@ public class OutputView {
     }
 
     public void beforeEvent() {
-        System.out.println("<할인 전 총주문 금액>\n" + String.format("%,d원\n", menu.getTotalPrice()));
+        System.out.println("<할인 전 총주문 금액>" + System.lineSeparator() + String.format("%,d원" + System.lineSeparator(), menu.getTotalPrice()));
     }
 
     public void event() {
         System.out.println(event.serviceToString());
         System.out.println(event.toString());
         System.out.println(event.totalDiscountToString());
-        System.out.println("<할인 후 예상 결제 금액>\n" + String.format("%,d원\n", menu.getTotalPrice() - event.calcTotalDiscount()));
+        System.out.println("<할인 후 예상 결제 금액>" + System.lineSeparator()
+            + String.format("%,d원" + System.lineSeparator(), menu.getTotalPrice() - event.calcTotalDiscount()));
     }
 
     public void badge() {

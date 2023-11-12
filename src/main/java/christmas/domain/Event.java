@@ -44,8 +44,8 @@ public class Event{
     }
 
     public String totalDiscountToString() {
-        String returnVal = "<총혜택 금액>\n";
-        returnVal += String.format("%,d원\n", (-1) * calcTotalDiscount());
+        String returnVal = "<총혜택 금액>" + System.lineSeparator();
+        returnVal += String.format("%,d원"  + System.lineSeparator(), (-1) * calcTotalDiscount());
         giveBadge();
 
         return returnVal;
@@ -68,13 +68,13 @@ public class Event{
     }
 
     public String serviceToString() {
-        String returnVal = "<증정 메뉴>\n";
+        String returnVal = "<증정 메뉴>" + System.lineSeparator();
 
         if (serviceEvent() == 25000) {
-            return returnVal += "샴페인 1개\n";
+            return returnVal += "샴페인 1개" + System.lineSeparator();
         }
 
-        return returnVal += "없음\n";
+        return returnVal += "없음" + System.lineSeparator();
     }
 
     @Override

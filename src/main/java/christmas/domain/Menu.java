@@ -40,11 +40,11 @@ public class Menu {
     }
 
     public String toString() {
-        String returnVal = "<주문 메뉴>\n";
+        String returnVal = "<주문 메뉴>" + System.lineSeparator();
 
         for (Dish dish : dishs.values()) {
             if (dish.getCount() != 0) {
-                returnVal += dish.getName() + " " + dish.getCount() + "개\n";
+                returnVal += dish.getName() + " " + dish.getCount() + "개" + System.lineSeparator();
             }
         }
 

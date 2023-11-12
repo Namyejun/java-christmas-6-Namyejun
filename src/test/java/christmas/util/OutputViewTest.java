@@ -19,13 +19,16 @@ public class OutputViewTest extends NsTest {
         run();
         Assertions.assertThat(output())
             .contains(
-                "<주문 메뉴>\n", "양송이수프 3개", "티본스테이크 3개",
-                "<할인 전 총주문 금액>\n183,000원",
-                "<증정 메뉴>\n샴페인 1개",
-                "<혜택 내역>\n크리스마스 디데이 할인: -1,200원\n특별 할인: -1,000원\n증정 이벤트: -25,000원",
-                "<총혜택 금액>\n-27,200원",
-                "<할인 후 예상 결제 금액>\n155,800원",
-                "<12월 이벤트 배지>\n산타"
+                "<주문 메뉴>" + System.lineSeparator(), "양송이수프 3개", "티본스테이크 3개",
+                "<할인 전 총주문 금액>" + System.lineSeparator() + "183,000원",
+                "<증정 메뉴>" + System.lineSeparator() + "샴페인 1개",
+                "<혜택 내역>" + System.lineSeparator() +
+                    "크리스마스 디데이 할인: -1,200원" + System.lineSeparator() +
+                    "특별 할인: -1,000원" + System.lineSeparator() +
+                    "증정 이벤트: -25,000원",
+                "<총혜택 금액>" + System.lineSeparator() + "-27,200원",
+                "<할인 후 예상 결제 금액>" + System.lineSeparator() + "155,800원",
+                "<12월 이벤트 배지>" + System.lineSeparator() + "산타"
             );
     }
 

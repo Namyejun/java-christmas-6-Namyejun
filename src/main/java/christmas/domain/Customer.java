@@ -9,6 +9,6 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "<12월 이벤트 배지>\n" + badgeOfDecember.toString();
+        return "<12월 이벤트 배지>" + System.lineSeparator() + badgeOfDecember.toString();
     }
 }
