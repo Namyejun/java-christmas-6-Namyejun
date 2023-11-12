@@ -17,10 +17,10 @@ public class Body {
     private OutputView outputView;
 
     private void beforeRunSetting() {
-        Menu menu = new Menu();
-        Customer customer = new Customer();
-        Validation validation = new Validation();
-        InputView inputView = new InputView(menu, validation);
+        menu = new Menu();
+        customer = new Customer();
+        validation = new Validation();
+        inputView = new InputView(menu, validation);
     }
 
     private void afterRunSetting(int reserveDate) {
