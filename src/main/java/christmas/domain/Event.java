@@ -79,10 +79,10 @@ public class Event{
 
     @Override
     public String toString() {
-        String returnVal = "<혜택 내역>\n";
+        String returnVal = "<혜택 내역>" + System.lineSeparator();
 
         if (eventValid()) {
-            return returnVal + "없음\n";
+            return returnVal + "없음" + System.lineSeparator();
         }
 
         returnVal += stringFormat("크리스마스 디데이 할인", xmasDdayEvent());
@@ -99,7 +99,7 @@ public class Event{
             return "";
         }
 
-        return prefix + ": " + String.format("%,d원", x*(-1)) + "\n";
+        return prefix + ": " + String.format("%,d원", x*(-1)) + System.lineSeparator();
     }
 
     private int xmasDdayEvent() {
